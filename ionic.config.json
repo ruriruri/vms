@@ -1,6 +1,6 @@
 {
   "name": "vms",
-  "app_id": "",
+  "app_id": "22e3546c",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}

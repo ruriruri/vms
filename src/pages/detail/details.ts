@@ -4,7 +4,7 @@ import { VmsService } from '../../providers/vms.service';
 import { HoSoKCB } from '../../models/HoSoKCB';
 import { Xml1 } from '../../models/Xml1';
 import { Xml2 } from '../../models/Xml2';
-import { Xml3 } from '../../models/XML3';
+import { Xml3 } from '../../models/Xml3';
 import { Xml4 } from '../../models/Xml4';
 import { Xml5 } from '../../models/Xml5';
 

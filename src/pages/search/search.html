@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Thông tin thẻ BHYT</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Mã thẻ</ion-label>
+      <ion-input type="text" [(ngModel)]="mathe"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Họ tên</ion-label>
+      <ion-input type="text" [(ngModel)]="hoten"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Ngày sinh</ion-label>
+      <ion-input type="text" [(ngModel)]="ngaysinh"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-card *ngIf="kqNhanLichSuKCBBS">
+    <ion-item>
+      <h2>{{ kqNhanLichSuKCBBS.hoTen }}</h2>
+      <p>{{ kqNhanLichSuKCBBS.cqBHXH }}</p>
+      <p>Mã thẻ: {{ kqNhanLichSuKCBBS.maThe }} </p>
+      <p>Từ: {{ kqNhanLichSuKCBBS.gtTheTu }} Đến {{ kqNhanLichSuKCBBS.gtTheDen }}</p>
+    </ion-item>
+    <ion-card-content>
+      {{ kqNhanLichSuKCBBS.ghiChu }}
+    </ion-card-content>
+    <ion-row>
+      <ion-col right text-right>
+        <button ion-button icon-right clear small (click)="navHistoriesPage()">
+          <div>Lịch sử khám bệnh</div>
+          <ion-icon name="md-send"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ion-content>
+<ion-footer>
+  <ion-row>
+    <ion-col col-6>
+      <button ion-button full icon-left color="secondary" (click)="getNhanLichSuKCB()">
+        <ion-icon name="list-box"></ion-icon>
+        Truy vấn
+      </button>
+    </ion-col>
+
+    <ion-col col-6>
+      <button ion-button full icon-left color="default" (click)="scan()">
+        <ion-icon name="qr-scanner"></ion-icon>
+        Quét barcode
+      </button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-navbar primary>
+    <ion-title>
+      <ion-icon name="pulse"></ion-icon>
+      VMS
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item (click)="goSearch()">
+      <ion-avatar item-start>
+        <ion-icon name="qr-scanner" large></ion-icon>
+      </ion-avatar>
+      <h2>Tra cứu thông tin BHYT</h2>
+      <h3>Lịch sử khám chữa bệnh</h3>
+      <p>Các thông tin liên quan cổng thông tin BHXH</p>
+    </ion-item>
+    <ion-item (click)="goSearch()">
+      <ion-avatar item-start>
+        <ion-icon name="camera" large></ion-icon>
+      </ion-avatar>
+      <h2>Chụp hình thông tin thẻ sai</h2>
+      <h3>Cho phép tự động soạn và gửi email</h3>
+      <p>Đính kèm hình thẻ sai đã chụp...</p>
+    </ion-item>
+    <ion-item (click)="goSearch()">
+      <ion-avatar item-start>
+        <ion-icon name="mic"></ion-icon>
+      </ion-avatar>
+      <h2>Nhập thông tin về diễn tiến bệnh</h2>
+      <h3>thông tin về hội chẩn</h3>
+      <p>bảng dữ liệu XML4 và XML5</p>
+    </ion-item>
+    <ion-item (click)="goSearch()">
+      <ion-avatar item-start>
+        <img src="assets/imgs/icd10.jpg">
+      </ion-avatar>
+      <h2>Tra cứu ICD-10</h2>
+    </ion-item>
+    <ion-item (click)="goSearch()">
+      <ion-avatar item-start>
+        <ion-icon name="paper"></ion-icon>
+      </ion-avatar>
+      <h2>Tra cứu Phác đồ điều trị</h2>
+      <h3> &nbsp;</h3>
+      <p> &nbsp;</p>
+    </ion-item>
+    <ion-item (click)="navDashboard()">
+      <ion-avatar item-start>
+        <ion-icon name="stats"></ion-icon>
+      </ion-avatar>
+      <h2>Dashboard</h2>
+    </ion-item>
+  </ion-list>
+</ion-content>

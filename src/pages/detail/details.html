@@ -1,0 +1,107 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Chi tiết hồ sơ</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div padding>
+    <div>
+      <span>{{xml1?.Id}}</span>|
+      <span>{{xml1?.HoTen}}</span>
+    </div>
+    <p>{{xml1?.DiaChi}}</p>
+    <p>{{xml1?.TenBenh}}</p>
+  </div>
+
+  <ion-card *ngIf="dsXml2">
+    <ion-card-header>
+      Thuốc
+    </ion-card-header>
+    <ion-card-content>
+      <table id="xml2">
+        <tr>
+          <th>Tên thuốc-hàm lượng</th>
+          <th>ĐVT</th>
+          <th>Giá</th>
+        </tr>
+        <tr *ngFor="let xml2 of dsXml2">
+          <td>{{xml2.TenThuoc}} {{xml2.HamLuong}}</td>
+          <td>{{xml2.DonViTinh | lowercase}}</td>
+          <td align="right">{{xml2.DonGia | vnnumber:'vi-VN'}}</td>
+        </tr>
+      </table>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="dsDichVuKyThuat">
+    <ion-card-header>
+      Dịch vụ kỹ thuật y tế
+    </ion-card-header>
+    <ion-card-content>
+      <table id="xml3">
+        <tr bgcolor="#999">
+          <th>Tên dịch vụ</th>
+          <th>ĐVT</th>
+          <th>Số lượng</th>
+          <th>Giá</th>
+        </tr>
+        <tr *ngFor="let xml3 of dsDichVuKyThuat">
+          <td>{{xml3.TenDichVu}}</td>
+          <td>{{xml3.DonViTinh | lowercase}}</td>
+          <td>{{xml3.SoLuong}}</td>
+          <td align="right">{{xml3.DonGia | vnnumber:'vi-VN'}}</td>
+        </tr>
+      </table>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="dsXetNghiem">
+    <ion-card-header>
+      Kết quả xét nghiệm
+    </ion-card-header>
+    <ion-card-content>
+      <table id="xml4">
+        <tr bgcolor="#999">
+          <th>Tên chỉ số</th>
+          <th>Giá trị</th>
+          <th>Khoảng bt</th>
+        </tr>
+        <tr *ngFor="let xn of dsXetNghiem">
+          <td>{{xn.TenChiSo}} </td>
+          <td>{{xn.GiaTri}} {{xn.KetLuan}}</td>
+          <td>{{xn.MoTa}}</td>
+        </tr>
+      </table>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="dsDichVu">
+    <ion-card-header>
+      Kết quả chẩn đoán hình ảnh
+    </ion-card-header>
+    <ion-card-content>
+      <div *ngFor="let dv of dsDichVu">
+        <p>Mã DV: {{dv.MaDichVu}}</p>
+        <p>Ngày: {{dv.NgayKq | vndate}}</p>
+        <p>Mô tả: {{dv.MoTa}}</p>
+        <p>Kết luận: {{dv.KetLuan}}</p>
+        <hr/>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="dsXml5" id="dichVu">
+    <ion-card-header>
+      Diễn biến bệnh
+    </ion-card-header>
+    <ion-card-content>
+      <div *ngFor="let xml5 of dsXml5">
+        <p>Ngày: {{xml5.NgayYl | vndate}}</p>
+        <p>Diễn biến: {{xml5.DienBien}}</p>
+        <hr/>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

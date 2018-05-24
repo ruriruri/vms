@@ -1,0 +1,24 @@
+page-details {
+    * {
+        font-size: 12px;
+    }
+    table {
+        width: 100%;
+        font-size: 12px;
+        border-collapse: collapse;
+    }
+    tr {
+        border-top: 1px solid #e6e6e6;
+        border-bottom: 1px solid #e6e6e6;
+    }
+    td {
+        padding: 2px;
+    }
+    th {
+        height: 28px;
+        background-color: #e6e6e6;
+    }
+    #dichVu {
+        font-size: 12px;
+    }
+}

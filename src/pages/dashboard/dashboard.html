@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Dashboard</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-item>
+        <ion-label style="font-size: 14px;">Kết quả gửi dữ liệu tháng/năm:</ion-label>
+        <ion-datetime displayFormat="MM/YYYY" [(ngModel)]="thangNam" (ngModelChange)="onDateChanged($event)"></ion-datetime>
+      </ion-item>
+    </ion-card-header>
+    <ion-card-content>
+      <canvas #lineCanvas></canvas>
+    </ion-card-content>
+  </ion-card>
+  <ion-card *ngIf="dsHoSoLoi">
+    <ion-card-header>
+      <ion-item>
+        <ion-label style="font-size: 14px;">Hồ sơ gửi lỗi: {{dsHoSoLoi.length}}</ion-label>
+      </ion-item>
+    </ion-card-header>
+    <ion-card-content>
+      <div *ngFor="let loi of dsHoSoLoi">
+        <p>{{loi.ngayGui}}</p>
+        <p>{{loi.mieuTa}}</p>
+        <hr>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

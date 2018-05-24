@@ -1,0 +1,34 @@
+export class Xml2 {
+    CosokcbId?: number;
+    DonGia?: number;
+    DonViTinh?: string;
+    DuongDung?: string;
+    HamLuong?: string;
+    HosoId?: number;
+    Id?: number;
+    KyQT?: string;
+    KygiamdinhId?: number;
+    LieuDung?: string;
+    MaBacSi?: string
+    MaBenh?: string;
+    MaCskcb?: string;
+    MaKhoa?: string;
+    MaLk?: string;
+    MaNhom?: string;
+    MaPttt?: number;
+    MaThuoc?: string;
+    Mieuta?: string;
+    NgayYl?: string;
+    SoDangKy?: string;
+    SoLuong?: number;
+    Status?: string;
+    Stt?: number;
+    TNguonkhac?: number;
+    TenThuoc?: string;
+    ThanhTien?: number;
+    ThuocId?: string
+    TinhthanhId?: string;
+    Trangthai?: number;
+    TyLe?: number;
+    Xml19324Id?: number;
+}

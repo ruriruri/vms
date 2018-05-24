@@ -1,0 +1,30 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Lịch sử khám bệnh</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-card *ngFor="let ls of dsLichSuKCB2018">
+    <ion-item>
+      Mã hồ sơ: {{ls.maHoSo}}
+    </ion-item>
+    <ion-card-content>
+      <p>Ngày vào viện: {{ls.ngayVao | vndate}}</p>
+      <p>Ngày ra viện: {{ls.ngayRa | vndate}}</p>
+      <p>Tên bệnh: {{ls.tenBenh}}</p>
+      <p>Tình trạng lúc ra viện: {{ls.tinhTrang}}</p>
+    </ion-card-content>
+
+    <ion-row>
+      <ion-col right text-right>
+        <button ion-button icon-right clear small (click)="navDetailsPage(ls.maHoSo)">
+          <div>Hồ sơ chi tết</div>
+          <ion-icon name="md-send"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ion-content>

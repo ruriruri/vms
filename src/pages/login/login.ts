@@ -17,7 +17,7 @@ import { RegisterPage } from '../register/register';
 })
 export class LoginPage {
   private username: string = "79024_BV";
-  private password: string = "Bvnd115@22789";
+  private password: string = "";
 
   constructor(
     public navCtrl: NavController,

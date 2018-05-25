@@ -40,7 +40,7 @@ export class LoginPage {
     this.vmsService.login().subscribe(
       result => {
         this.vmsService.kqPhienLamViec = result;
-        console.log('result',result)
+        this.vmsService.maCSKCB = this.username.split("_")[0];
         loading.dismiss();
         this.navCtrl.push(HomePage);
       },

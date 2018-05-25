@@ -39,22 +39,29 @@ export class DashboardPage {
     });
     loading.present();
 
-    this.vmsService.getNhanChiTietHSNgay4210('3', '79024', moment().format('DD/MM/YYYY'))
+    this.vmsService.getNhanChiTietHSNgay4210('3', this.vmsService.maCSKCB, moment().format('DD/MM/YYYY'))
       .subscribe(result => {
         this.dsHoSoLoi = result['dsHoSo'];
         this.dsHoSoLoi = this.dsHoSoLoi.filter(loi => loi.slHoSoLoi !== 0);
       });
-    this.vmsService.getNhanKQTiepNhanHS4210('3', '79024', this.tuNgay, this.denNgay)
-      .subscribe(result => {
-        let ds = result['dsKQGuiHosoNgay'];
-        let ngaygui = ds.map(a => a.ngayGui.substr(0, 2));
-        let tong = ds.map(a => a.tongSo);
-        let hsthanhcong = ds.map(a => a.soHSThanhCong);
-        let hsxoa = ds.map(a => a.tongSo - (a.soHSThanhCong + a.soHSLoi));
-        let hsloi = ds.map(a => a.soHSLoi);
-        loading.dismiss();
-        this.createNhanKQTiepNhanHS4210Chart(ngaygui, tong, hsthanhcong, hsxoa, hsloi)
-      })
+    this.vmsService.getNhanKQTiepNhanHS4210('3', this.vmsService.maCSKCB, this.tuNgay, this.denNgay)
+      .subscribe(
+        result => {
+          if (result) {
+            let ds = result['dsKQGuiHosoNgay'];
+            let ngaygui = ds.map(a => a.ngayGui.substr(0, 2));
+            let tong = ds.map(a => a.tongSo);
+            let hsthanhcong = ds.map(a => a.soHSThanhCong);
+            let hsxoa = ds.map(a => a.tongSo - (a.soHSThanhCong + a.soHSLoi));
+            let hsloi = ds.map(a => a.soHSLoi);
+            this.createNhanKQTiepNhanHS4210Chart(ngaygui, tong, hsthanhcong, hsxoa, hsloi)
+          }
+          loading.dismiss();
+        },
+        (error) => {
+          console.log(error);
+          loading.dismiss();
+        })
   }
 
   onDateChanged(e) {
@@ -67,7 +74,7 @@ export class DashboardPage {
     this.tuNgay = moment(e + '-01').startOf('month').format('DD/MM/YYYY');
     this.denNgay = moment(e + '-01').endOf('month').format('DD/MM/YYYY');
 
-    this.vmsService.getNhanKQTiepNhanHS4210('3', '79024', this.tuNgay, this.denNgay).subscribe(
+    this.vmsService.getNhanKQTiepNhanHS4210('3', this.vmsService.maCSKCB, this.tuNgay, this.denNgay).subscribe(
       result => {
         let ds = result['dsKQGuiHosoNgay'];
         let ngaygui = ds.map(a => a.ngayGui.substr(0, 2));
@@ -191,7 +198,7 @@ export class DashboardPage {
       console.log(this.lineChart.data.labels[firstPoint._index])
       console.log(moment(this.thangNam + '-' + this.lineChart.data.labels[firstPoint._index]).format('DD/MM/YYYY'))
       this.ngay = moment(this.thangNam + '-' + this.lineChart.data.labels[firstPoint._index]).format('DD/MM/YYYY');
-      this.vmsService.getNhanChiTietHSNgay4210('3', '79024', this.ngay)
+      this.vmsService.getNhanChiTietHSNgay4210('3', this.vmsService.maCSKCB, this.ngay)
         .subscribe(result => {
           console.log(result);
           this.dsHoSoLoi = result['dsHoSo'];

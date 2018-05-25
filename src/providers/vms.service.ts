@@ -17,6 +17,7 @@ export class VmsService {
     public password: string;
     public kqPhienLamViec: KQPhienLamViec;
     public loading: LoadingController;
+    public maCSKCB: string;
 
     constructor(
         private httpClient: HttpClient,
